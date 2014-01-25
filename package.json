@@ -9,11 +9,8 @@
     "test": "nodeunit test",
     "perf": "nodeunit perf"
   },
-  "dependencies": {
-    "lodash": "~2.4.1",
-    "async": "~0.2.10"
-  },
   "devDependencies": {
+    "async": "~0.2.10",
     "nodeunit": "~0.8.3",
     "temp": "~0.6.0",
     "rimraf": "~2.2.6"

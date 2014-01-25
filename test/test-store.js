@@ -37,5 +37,33 @@ module.exports = {
       test.equal(value, 'value');
       test.done();
     }
+  },
+
+  testWriteTwice: function (test) {
+    var root = this.root;
+
+    store.write(root, 'key', 'value', 'utf8', onFirstContentWritten);
+
+    function onFirstContentWritten(error) {
+      test.ifError(error);
+      store.write(root, 'key', 'value', 'utf8', onSecondContentWritten);
+    }
+
+    function onSecondContentWritten(error) {
+      test.ifError(error);
+      test.done();
+    }
+  },
+
+  testReadNonExistent: function (test) {
+    var root = this.root;
+
+    store.read(root, 'key', 'utf8', onContentRead);
+
+    function onContentRead(error, exists, content) {
+      test.ifError(error);
+      test.equal(exists, false);
+      test.done();
+    }
   }
 };
