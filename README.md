@@ -30,7 +30,7 @@ The parameters understood by the function are:
 To read a value into the data store, you use the `store.read()` function. The function has the following signature:
 
 ```js
-store.read(root, key, encoding, done):
+store.read(root, key, encoding, done);
 ```
 
 The parameters understood by the function are:
